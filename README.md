@@ -2,5 +2,6 @@
 i didn't like that clash royales randomized deck builder wasn't true random, so thats why this exists
 
 # how to use
-1. open a terminal where the script is and run `node cr-gen.js` (assuming you have node already installed)
-2. thats it, even an idiot could run this
+1. clone or download the repo (duh)
+2. open a terminal where the repo is and run `node main.js`
+3. thats it, even an idiot could run this
