@@ -9,7 +9,6 @@ const evo_counter = 2;
 
 const allCards = [...buildings, ...troops,...spells];
 
-// i hate js math i wouldnt even be redoing this if i archived the script lmao
 function chanceEvo(card, currentEvos) {
     if (currentEvos >= evo_counter) return card;
 
@@ -35,5 +34,21 @@ function getDeck(array, count){
 const randomDeck = getDeck(allCards, 8);
 const randomTT = tt[Math.floor(Math.random() * tt.length)];
 
+function generateRoyaleApiLink(deck) {
+    const formattedDeck = deck.map(card => {
+        const lower = card.toLowerCase();
+        if (evos.includes(card)) {
+            const base = lower.replace("evo ", "").replace(/ /g, "-");
+            return `${base}-ev1`;
+        }
+        return lower.replace(/ /g, "-");
+    }).join(',');
+
+    return `https://royaleapi.com/decks/stats/${formattedDeck}`;
+}
+
+const royaleApiLink = generateRoyaleApiLink(randomDeck);
+
 console.log("Your randomized deck:", randomDeck.join(", "));
 console.log("Tower troop for this deck:", randomTT);
+console.log("RoyaleAPI link for the deck:", royaleApiLink);
